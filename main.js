@@ -1,29 +1,33 @@
-//The underneath code is needed so we can use .env instead of JSON.
+// Our envirnmental file is safer to store our config settings
 require("dotenv").config();
 
-//Calling the Discord.JS package with some options.
-const { Collection, Client } = require("discord.js");
+// We need to require some properies from the discord.js library
+const { Client, Collection } = require("discord.js");
 
-//Creating the client with the option that disables everyone tagging.
+// Initialise a new client and disable mention everyone
 const client = new Client({
     disableEveryone: true
 });
 
-//An event which emits whenever the bot becomes online/logs in.
-client.on("ready", async () => {
-    console.log("[LOG] I've become online on " + client.guilds.size + " servers!");
-    client.user.setActivity("my code.", {type: "WATCHING"});
+// An event which emits whenever the bot logs into Discord
+client.on("ready", () => {
+    const plural = client.guilds.size == 1 ? "guild" : "guilds";
+    console.log(`[LOG] Logged in as ${client.user.username}!`)
+    console.log(`[LOG] I have connected to ${client.guilds.size} ${plural}!`);
+    client.user.setActivity("some code!", { type: "WATCHING "});
 });
 
-//An event which emits whenever it crashes.
-client.on("disconnect", async () => {
-    console.log("[LOG] I've disconnected from discord!");
+// A
+
+//An event which emits whenever the bot disconnects from the websocket
+client.on("disconnect", () => {
+    console.error("[LOG] Disconnected from the websocket!");
 });
 
-//An event which emits whenever the bot tries to log back in/tries to reconnect.
-client.on("reconnecting", async () => {
-    console.log("[LOG] Reconnecting to discord...");
+// An event which emits whenever the bot tries reconnect to the websocket
+client.on("reconnecting", () => {
+    console.log("[LOG] Attempting to reconnect...");
 });
 
-//In here the bot tries to login using it's token.
-client.login(process.env.TOKEN);
+// A method called that logs in the bot
+client.login(process.env.TOKEN).catch(console.error);
