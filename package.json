@@ -1,0 +1,26 @@
+{
+  "name": "tutorials",
+  "version": "1.1.0",
+  "description": "A discord bot made for the tutorials.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodetailDevelopment/Discord.JS-Tutorial.git"
+  },
+  "keywords": [
+    "Remuting#0523"
+  ],
+  "author": "\u001b[A\u001b[B\u001b[A\u001b[B\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b: Remuting#0523",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodetailDevelopment/Discord.JS-Tutorial/issues"
+  },
+  "homepage": "https://github.com/CodetailDevelopment/Discord.JS-Tutorial#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
